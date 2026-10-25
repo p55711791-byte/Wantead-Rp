@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ورود به پنل مدیریت | TSWW.IR</title>
+    <style>
+        :root { --blood-red: #8b0000; --bg-color: #080202; --text-color: #f3f4f6; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: Tahoma, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; margin: 0; }
+        .login-box { background: #120505; border: 2px solid var(--blood-red); padding: 40px; border-radius: 15px; box-shadow: 0 0 30px rgba(139, 0, 0, 0.4); width: 320px; text-align: center; }
+        .logo-w { font-size: 50px; font-weight: bold; color: #ff1a1a; text-shadow: 0 0 20px var(--blood-red); border: 2px dashed var(--blood-red); display: inline-block; padding: 5px 20px; border-radius: 12px; background: rgba(139, 0, 0, 0.1); margin-bottom: 20px; }
+        input { width: 100%; padding: 12px; margin: 10px 0; background: #080202; border: 1px solid #4a0000; color: white; border-radius: 6px; box-sizing: border-box; text-align: center; }
+        input:focus { border-color: #ff1a1a; outline: none; box-shadow: 0 0 10px var(--blood-red); }
+        button { background: var(--blood-red); color: white; border: none; padding: 12px; width: 100%; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; margin-top: 10px; }
+        button:hover { background: #b30000; box-shadow: 0 0 15px #ff0000; }
+    </style>
+</head>
+<body>
+    <div class="login-box">
+        <div class="logo-w">W</div>
+        <h2 style="color: #ff3333; margin-top: 0;">ورود به پنل مدیریت</h2>
+        <form action="/logs" method="GET">
+            <input type="text" placeholder="نام کاربری (Admin)" required>
+            <input type="password" placeholder="رمز عبور" required>
+            <button type="submit">ورود به سیستم</button>
+        </form>
+    </div>
+</body>
+</html>
