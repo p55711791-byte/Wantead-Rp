@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لایو لاگ تیم‌اسپیک | TSWW.IR</title>
+    <style>
+        :root { --blood-red: #8b0000; --bg-color: #080202; --text-color: #f3f4f6; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: Tahoma, sans-serif; margin: 0; padding: 0; }
+        header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: linear-gradient(to bottom, #150303, #080202); border-bottom: 2px solid var(--blood-red); }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
+        .logo-w { font-size: 30px; font-weight: bold; color: #ff1a1a; text-shadow: 0 0 15px var(--blood-red); border: 2px dashed var(--blood-red); padding: 3px 12px; border-radius: 8px; background: rgba(139, 0, 0, 0.1); }
+        nav a { color: #d1d5db; text-decoration: none; margin-left: 20px; font-weight: bold; transition: 0.3s; }
+        nav a:hover, nav a.active { color: #ff4d4d; text-shadow: 0 0 8px #ff0000; }
+        .logout-btn { background: var(--blood-red); color: white; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; font-weight: bold; text-decoration: none; transition: 0.3s; }
+        .logout-btn:hover { background: #b30000; box-shadow: 0 0 10px #ff0000; }
+        .container { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+        .section-box { background-color: #120505; border: 1px solid #4a0000; border-radius: 12px; padding: 20px; box-shadow: 0 0 20px rgba(139, 0, 0, 0.2); }
+        h2 { color: #ff3333; border-bottom: 1px solid #4a0000; padding-bottom: 10px; margin-top: 0; }
+        .log-box { background-color: #080202; border: 1px dashed #660000; border-radius: 8px; padding: 15px; height: 350px; overflow-y: auto; font-family: monospace; font-size: 14px; color: #00ff66; direction: ltr; text-align: left; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo-w">W</div>
+            <span style="font-size: 20px; font-weight: bold; color: #ff4d4d;">TSWW.IR PANEL</span>
+        </div>
+        <nav>
+            <a href="/logs" class="active">لایو لاگ تیم‌اسپیک</a>
+            <a href="/shop">شاپ ماشین VIP</a>
+        </nav>
+        <a href="/" class="logout-btn">خروج</a>
+    </header>
+
+    <div class="container">
+        <div class="section-box">
+            <h2>لایو لاگ سرور تیم‌اسپیک (tsww.ir)</h2>
+            <div id="logContainer" class="log-box">
+                [سیستم] در حال اتصال به سرور تیم‌اسپیک tsww.ir ...\n
+            </div>
+        </div>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+        const logContainer = document.getElementById('logContainer');
+
+        socket.on('logMessage', (msg) => {
+            const p = document.createElement('div');
+            p.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            logContainer.appendChild(p);
+            logContainer.scrollTop = logContainer.scrollHeight;
+        });
+    </script>
+</body>
+</html>
