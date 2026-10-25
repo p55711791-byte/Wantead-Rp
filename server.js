@@ -65,3 +65,19 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+// بررسی اطلاعات لاگین در سرور
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+    // نام کاربری و رمز عبور دلخواه خودتان برای ورود به پنل
+    const ADMIN_USER = "admin";
+    const ADMIN_PASS = "secret123";
+
+    if (username === ADMIN_USER && password === ADMIN_PASS) {
+        // اگر درست بود، هدایت به صفحه لاگ‌ها
+        res.redirect('/logs');
+    } else {
+        // اگر اشتباه بود، بازگشت به صفحه ورود با خطا
+        res.send(`<script>alert('نام کاربری یا رمز عبور اشتباه است!'); window.location.href='/';</script>`);
+    }
+});
